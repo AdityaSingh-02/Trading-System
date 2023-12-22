@@ -1,9 +1,13 @@
-const express = require('express')
+import Express from "express";
+import connect from "./db";
 
-const app = express();
+const app = Express();
+app.use(Express.json());
 
-app.get('/',(req:any,res:any)=> {
-    res.send("hello world")
-})
+connect();
 
-app.listen(3001);
+app.get("/", (req: any, res: any) => {
+  res.send("hello world");
+});
+
+app.listen(4000);
