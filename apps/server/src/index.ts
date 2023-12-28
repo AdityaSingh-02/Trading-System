@@ -1,7 +1,12 @@
-const express = require('express');
-const cors=require('cors');
-const app = express();
+import Express from "express";
+import connect from "./db";
+
+const app = Express();
+app.use(Express.json());
+const cors = require('cors');
 app.use(cors());
+
+connect();
 
 interface bid{
     name:string,
@@ -51,13 +56,6 @@ app.post('/sell-order',(req:any,res:any)=>{
 
         })
     }
- 
-
-
-
-
-    
-
 }
 
 
@@ -72,4 +70,8 @@ app.get('/',(req:any,res:any)=> {
     res.send("hello world");
 })
 
-app.listen(3001);
+app.get("/", (req: any, res: any) => {
+  res.send("hello world");
+});
+
+app.listen(4000);
